@@ -1,0 +1,21 @@
+{
+    "name": "Pavan Kalyan",
+    "dob": "01-01-01",
+    "addresses": [
+        {
+            "type": "present",
+            "door no": 123,
+            "street": "Lakshmi",
+            "city": "Hyd",
+            "pincode": 453322
+        },
+        {
+            "type": "permanent",
+            "door no": 54,
+            "street": "Chowk",
+            "city": "Del",
+            "pincode": 654545
+        }
+    ],
+    "skills": ["Linux", "Shell Scripting", "Ansible"]
+}
