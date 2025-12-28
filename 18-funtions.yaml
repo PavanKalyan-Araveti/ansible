@@ -17,7 +17,7 @@
 
   - name: Convert map to list
     ansible.builtin.debug:
-      msg: "Tags are: {{ taps | dict2items }}"
+      msg: "Tags are: {{ tags | dict2items }}"
 
   - name: read yaml and take into one variable
     ansible.builtin.set_fact:
