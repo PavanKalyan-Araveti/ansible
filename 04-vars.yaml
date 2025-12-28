@@ -7,5 +7,5 @@
     TRAINER: Pavan
   tasks:
   - name: Printint the course info
-    ansible.builtit.debug:
+    ansible.builtin.debug:
       msg: "Course name is {{ COURSE }}, duration is {{ DURATION }}, and trained is {{ TRAINER }}."
