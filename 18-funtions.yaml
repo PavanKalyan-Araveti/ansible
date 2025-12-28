@@ -59,7 +59,7 @@
   - name: redirect the output using command
     ansible.builtin.command: ls -ltr > /tmp/output.txt #not work with command
     register: c_redirect_output
-  #  ignore_errors: true # it will execute after this line even though it will get error 
+    ignore_errors: true # it will execute after this line even though it will get error 
 
   - name: print the c_redirect_output
     ansible.builtin.debug:
