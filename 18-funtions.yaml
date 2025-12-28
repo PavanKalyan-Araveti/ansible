@@ -6,6 +6,8 @@
     tags:
       application: payment
       Environment: Prod
+    NAME: PaVan
+    ipaddress: "123.123.4.3"
   tasks:
   - name: Default variable
     ansible.builtin.debug:
@@ -31,3 +33,42 @@
     ansible.builtin.copy:
       dest: ./student-data.json
       content: "{{ student_yaml | to_nice_json }}"
+
+  - name: convert to uppercase
+    ansible.builtin.debug:
+      msg: " Name is: {{ NAME | upper }}"
+
+  - name: convert to lowercase
+    ansible.builtin.debug:
+      msg: " Name is: {{ NAME | lower }}"
+
+  - name: Check IP is valid or not
+    ansible.builtin.debug:
+      msg: "{{ ipaddress | ansible.utils.ipv4 }}"
+
+  - name: grep for root
+   # ansible.builtin.command: cat /etc/passwd | grep root # if we use command get error need to use shell
+    ansible.builtin.command: cat /etc/passwd | grep root
+    register: command_output # above command will execute and store here
+
+  - name: print the command_output
+    ansible.builtin.debug:
+      msg: "{{ command_output }}"
+#shell module -> can access variables, pipes, redirect, shell environment etc
+
+  - name: redirect the output using command
+    ansible.builtin.command: ls -ltr > /tmp/output.txt #not work with command
+    register: c_redirect_output
+    ignore_errors: true # it will execute after this line even though it will get error 
+
+  - name: print the c_redirect_output
+    ansible.builtin.debug:
+      msg: "{{ c_redirect_output }}"
+
+  - name: redirect the output using shell
+    ansible.builtin.shell: ls -ltr > /tmp/output.txt 
+    register: s_redirect_output
+
+  - name: print the s_redirect_output
+    ansible.builtin.debug:
+      msg: "{{ s_redirect_output }}"
