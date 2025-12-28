@@ -56,14 +56,14 @@
       msg: "{{ command_output }}"
 #shell module -> can access variables, pipes, redirect, shell environment etc
 
-  - name: redirect the output using command
-    ansible.builtin.command: ls -ltr > /tmp/output.txt #not work with command
-    register: c_redirect_output
-    ignore_errors: true # it will execute after this line even though it will get error 
+  # - name: redirect the output using command
+  #   ansible.builtin.command: ls -ltr > /tmp/output.txt #not work with command
+  #   register: c_redirect_output
+  #   ignore_errors: true # it will execute after this line even though it will get error 
 
-  - name: print the c_redirect_output
-    ansible.builtin.debug:
-      msg: "{{ c_redirect_output }}"
+  # - name: print the c_redirect_output
+  #   ansible.builtin.debug:
+  #     msg: "{{ c_redirect_output }}"
 
   - name: redirect the output using shell
     ansible.builtin.shell: ls -ltr > /tmp/output.txt 
