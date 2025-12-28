@@ -11,4 +11,3 @@
     - { name: "nginx", state: "absent"}
     - { name: "redis", state: "latest"}
     - { name: "zip", state: "absent"}
-    - { name: "rabbitmq", state: "latest"}
