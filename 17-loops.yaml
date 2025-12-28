@@ -1,6 +1,7 @@
 - name: Install and uninstall packages
   hosts: local
   connection: local
+  become: yes
   tasks:
   - name: Installing and removing packages
     ansible.builtin.package:
