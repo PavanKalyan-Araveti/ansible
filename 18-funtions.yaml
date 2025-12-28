@@ -48,7 +48,7 @@
 
   - name: grep for root
    # ansible.builtin.command: cat /etc/passwd | grep root # if we use command get error need to use shell
-    ansible.builtin.command: cat /etc/passwd | grep root
+    ansible.builtin.shell: cat /etc/passwd | grep root
     register: command_output # above command will execute and store here
 
   - name: print the command_output
