@@ -1,0 +1,33 @@
+- name: funtions
+  hosts: local
+  connection: local
+  vars:
+    technologies: DevOps, AWS, Linux, Shell, Ansible # string
+    tags:
+      application: payment
+      Environment: Prod
+  tasks:
+  - name: Default variable
+    ansible.builtin.debug:
+      msg: "Hello: {{ name | default('Ramesh') }}"
+
+  - name: Convert String to list
+    ansible.builtin.debug:
+      msg: "Technologies are : {{ technologies | split(',') }}"
+
+  - name: Convert map to list
+    ansible.builtin.debug:
+      msg: "Tags are: {{ taps | dict2items }}"
+
+  - name: read yaml and take into one variable
+    ansible.builtin.set_facts:
+      student_yaml: "{{ lookup('file', 'student_yaml') | from_yaml }}"
+
+  - name: convert yaml into json
+    ansible.builtin.debug:
+      msg: "Json: {{ student_yaml | to_json }}"
+  
+  - name: copy yaml file
+    ansible.builtin.copy:
+      dest: ./student-data.json
+      content: "{{ student_yaml | to_nice_json }}"
