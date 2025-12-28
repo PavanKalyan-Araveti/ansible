@@ -1,0 +1,7 @@
+- name: argument Level variables
+  hosts: local
+  connection: local
+  tasks:
+  - name: Printint the course info
+    ansible.builtin.debug:
+      msg: "Course name is {{ COURSE }}, duration is {{ DURATION }}, and trained is {{ Trainer }}."
