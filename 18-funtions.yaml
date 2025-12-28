@@ -20,7 +20,7 @@
       msg: "Tags are: {{ taps | dict2items }}"
 
   - name: read yaml and take into one variable
-    ansible.builtin.set_facts:
+    ansible.builtin.set_fact:
       student_yaml: "{{ lookup('file', 'student_yaml') | from_yaml }}"
 
   - name: convert yaml into json
